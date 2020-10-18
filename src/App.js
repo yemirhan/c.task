@@ -31,7 +31,7 @@ function App() {
       <Header className="header">
         <div className="logo" />
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content style={{ minHeight: 'calc(100vh - 128px)', padding: '0 50px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -58,7 +58,7 @@ function App() {
           </Content>
         </Layout>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+      <Footer style={{ textAlign: 'center' }}>Job Application Task for CreatorDen</Footer>
     </Layout>
   );
 }
