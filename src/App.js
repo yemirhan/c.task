@@ -17,7 +17,10 @@ function App() {
       title: 'Chart for Values',
       element: <Chart data={data} />
     },
-    null
+    {
+      title: 'Your Element',
+      element: <div style={{padding: 10}}>Design your component and add to elements[] in App.js.</div>
+    }
   ];
 
 
@@ -41,8 +44,7 @@ function App() {
           <Sider className="site-layout-background" width={200}>
             <Menu
               mode="inline"
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
+              defaultSelectedKeys={['0']}
               style={{ height: '100%' }}
             >
               {_.map(elements, (e, k) => <Menu.Item onClick={() => setElement(k)} key={k}>{e?.title || 'Your Element'}</Menu.Item>)}
