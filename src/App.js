@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import namor from "namor";
+import namor from "namor"; //Fake string generator
 import "./App.css";
 import "antd/dist/antd.css";
 import { Layout, Menu, Breadcrumb } from "antd";
@@ -12,7 +12,7 @@ const { Chart } = Elements;
 
 function App() {
   const [data, set_data] = React.useState([]);
-  const [tableData, set_tableData] = React.useState([]);
+  const [tableData, set_tableData] = React.useState([]); //State hook for Table component
   const [element, setElement] = React.useState(0);
 
   const elements = [
@@ -33,6 +33,7 @@ function App() {
         .map((v, k) => ({ x: k, y: v * v * v }))
         .value()
     );
+    //Sets the data that we send to table
     set_tableData(
       _.map(new Array(100), function () {
         return {

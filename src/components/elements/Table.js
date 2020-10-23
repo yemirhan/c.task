@@ -1,12 +1,13 @@
 import React from "react";
-import { useTable, useFlexLayout, useSortBy, usePagination } from "react-table";
+import { useTable, useFlexLayout, useSortBy, usePagination } from "react-table"; //React-Table imports
 
+/////////////////////////////////////////////////////////////////////////
 import FirstPageIcon from "@material-ui/icons/FirstPage";
 import IconButton from "@material-ui/core/IconButton";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
-import { useTheme, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import MaUTable from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -14,9 +15,13 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
+/////////////////////////////////////////////////////////////////////////
+// All of these are imports for MaterialUI library.
+// It looks ugly, but sadly I couldn't found a way to use AntD with React-Table.
 const StyledTableCell = withStyles((theme) => ({
+  //Table header design
   head: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
   },
   body: {
@@ -25,22 +30,23 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 const StyledTableRow = withStyles((theme) => ({
+  //Table row design
   root: {
     "&:nth-of-type(odd)": {
       backgroundColor: theme.palette.action.hover,
     },
   },
 }))(TableRow);
+
 export default function Table({ data = [] }) {
-  const theme = useTheme();
   const columns = React.useMemo(
     () => [
       {
-        Header: "Column 1",
+        Header: "ID",
         accessor: "col1", // accessor is the "key" in the data
       },
       {
-        Header: "Column 2",
+        Header: "Value",
         accessor: "col2",
       },
     ],
@@ -86,6 +92,8 @@ export default function Table({ data = [] }) {
       <TableContainer style={{ paddingLeft: "5px", paddingRight: "5px" }}>
         <MaUTable {...getTableProps()} stickyHeader aria-label="sticky table">
           <TableHead>
+            {" "}
+            {/* Draws table header */}
             {headerGroups.map((headerGroup) => (
               <TableRow {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
@@ -106,6 +114,8 @@ export default function Table({ data = [] }) {
             ))}
           </TableHead>
           <TableBody>
+            {" "}
+            {/* Draws table body */}
             {page.map((row, i) => {
               prepareRow(row);
               return (
@@ -124,41 +134,35 @@ export default function Table({ data = [] }) {
         </MaUTable>
       </TableContainer>
       <div>
+        {" "}
+        {/* This part is the pagination controller */}
         <IconButton
           onClick={() => gotoPage(0)}
           disabled={!canPreviousPage}
           aria-label="first page"
         >
-          {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+          <FirstPageIcon />
         </IconButton>
         <IconButton
           onClick={() => previousPage()}
           disabled={!canPreviousPage}
           aria-label="previous page"
         >
-          {theme.direction === "rtl" ? (
-            <KeyboardArrowRight />
-          ) : (
-            <KeyboardArrowLeft />
-          )}
+          <KeyboardArrowLeft />
         </IconButton>
         <IconButton
           onClick={() => nextPage()}
           disabled={!canNextPage}
           aria-label="next page"
         >
-          {theme.direction === "rtl" ? (
-            <KeyboardArrowLeft />
-          ) : (
-            <KeyboardArrowRight />
-          )}
+          <KeyboardArrowRight />
         </IconButton>
         <IconButton
           onClick={() => gotoPage(pageCount - 1)}
           disabled={!canNextPage}
           aria-label="last page"
         >
-          {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
+          <LastPageIcon />
         </IconButton>
         <span>
           Page{" "}
