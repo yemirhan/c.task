@@ -1,28 +1,28 @@
 .logo {
-    width: 120px;
-    height: 31px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px 28px 16px 0;
-    float: left;
+  width: 120px;
+  height: 31px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px 28px 16px 0;
+  float: left;
 }
 
 .site-layout-background {
-    background: #fff!important;
+  background: #fff !important;
 }
 
 .content-card {
-    height: 300px!important;
-    display: flex;
-    flex-grow: 1;
-    width: 400px!important;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    background-color: #f8f8f8;
-    flex-direction: column;
+  height: 600px !important;
+  display: flex;
+  flex-grow: 1;
+  width: 500px !important;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #f8f8f8;
+  flex-direction: column;
 }
 
 .content-title {
-    font-weight: 500;
-    padding: 6px 10px;
-    border-bottom: 1px solid #eee;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-bottom: 1px solid #eee;
 }
