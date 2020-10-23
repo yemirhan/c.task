@@ -21,7 +21,7 @@ function App() {
       element: <Chart data={data} />,
     },
     {
-      title: "Your Element",
+      title: "Table",
       element: <Table data={tableData}></Table>,
     },
   ];
